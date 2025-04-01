@@ -1,8 +1,8 @@
-import Image from "next/image"
-import { Search, Camera } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import NewsletterForm from "@/components/newsletter-form"
+import Image from "next/image";
+import { Search, Camera } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import NewsletterForm from "@/components/newsletter-form";
 
 export default function Home() {
   return (
@@ -10,12 +10,13 @@ export default function Home() {
       <div className="w-full">
         <div className="flex justify-center mb-8">
           <div className="bg-white rounded-lg p-4">
-            <Image 
-              src="/logo.png" 
-              alt="WeAreClean Logo" 
-              width={300} 
-              height={100} 
-              priority 
+            <Image
+              src="/logo.svg"
+              alt="WeAreClean Logo"
+              width={288}
+              height={49}
+              className="w-auto h-8"
+              priority
             />
           </div>
         </div>
@@ -28,7 +29,10 @@ export default function Home() {
             placeholder="Ürün ara..."
             className="w-full p-3 pl-10 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-foreground placeholder:text-muted-foreground"
           />
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
+          <Search
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"
+            size={18}
+          />
         </div>
       </div>
 
@@ -46,6 +50,5 @@ export default function Home() {
         <p>WeAreClean v1.0</p>
       </div>
     </div>
-  )
+  );
 }
-
