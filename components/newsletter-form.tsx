@@ -61,8 +61,8 @@ export default function NewsletterForm() {
   return (
     <div className="w-full mb-6">
       <div className="text-center mb-2">
-        <h2 className="text-lg font-medium">Mail Listesine Katıl</h2>
-        <p className="text-sm text-gray-500">Yeni ürün ve güncellemelerden haberdar ol</p>
+        <h2 className="text-lg font-medium text-foreground">Mail Listesine Katıl</h2>
+        <p className="text-sm text-muted-foreground">Yeni ürün ve güncellemelerden haberdar ol</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-2">
@@ -73,10 +73,14 @@ export default function NewsletterForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-posta adresiniz"
             required
-            className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="flex-1 p-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-foreground placeholder:text-muted-foreground"
             disabled={isPending}
           />
-          <Button type="submit" disabled={isPending} className="bg-green-500 hover:bg-green-600">
+          <Button 
+            type="submit" 
+            disabled={isPending}
+            className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white min-w-[100px]"
+          >
             {isPending ? "İşleniyor..." : "Katıl"}
           </Button>
         </div>
@@ -84,7 +88,9 @@ export default function NewsletterForm() {
         {formStatus.type !== "idle" && (
           <div
             className={`text-sm p-2 rounded ${
-              formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+              formStatus.type === "success" 
+                ? "bg-green-500/10 text-green-500 border border-green-500/20" 
+                : "bg-red-500/10 text-red-500 border border-red-500/20"
             }`}
           >
             {formStatus.message}

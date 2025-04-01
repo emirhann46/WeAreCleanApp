@@ -23,29 +23,36 @@ export default function ScanPage() {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-64px)]">
+    <div className="flex flex-col h-[calc(100vh-64px)] bg-background">
       {!scanComplete ? (
         <>
-          <div className="flex items-center p-4 border-b">
+          <div className="flex items-center p-4 border-b border-border">
             <Link href="/">
-              <ArrowLeft className="text-gray-700" />
+              <ArrowLeft className="text-muted-foreground hover:text-foreground transition-colors" />
             </Link>
-            <h1 className="text-xl font-semibold text-center flex-1">Barkod Tara</h1>
+            <h1 className="text-xl font-semibold text-foreground text-center flex-1">Barkod Tara</h1>
           </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center bg-gray-100 relative">
-            <div className="w-full h-64 bg-black/10 flex items-center justify-center mb-8">
-              <Camera size={64} className="text-gray-400" />
+          <div className="flex-1 flex flex-col items-center justify-center bg-background relative">
+            <div className="w-full max-w-md mx-auto h-64 bg-card flex items-center justify-center mb-8 border border-border rounded-lg shadow-sm">
+              <Camera size={64} className="text-muted-foreground" />
             </div>
-            <p className="text-gray-600 mb-8">Barkodu çerçeve içine yerleştirin</p>
+            <p className="text-muted-foreground mb-8">Barkodu çerçeve içine yerleştirin</p>
 
             <div className="flex gap-4">
-              <Button variant="outline" className="px-6 py-2 border-gray-300 text-gray-700" onClick={resetScan}>
+              <Button 
+                variant="secondary" 
+                onClick={resetScan}
+                className="min-w-[100px]"
+              >
                 <X className="mr-2" size={18} />
                 İptal
               </Button>
 
-              <Button className="px-6 py-2 bg-green-500 hover:bg-green-600" onClick={handleScan}>
+              <Button 
+                onClick={handleScan}
+                className="min-w-[100px] bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white"
+              >
                 <Camera className="mr-2" size={18} />
                 Tara
               </Button>
@@ -53,9 +60,11 @@ export default function ScanPage() {
           </div>
         </>
       ) : (
-        <div className="flex-1 flex flex-col items-center justify-center p-6">
+        <div className="flex-1 flex flex-col items-center justify-center p-6 bg-background">
           <div
-            className={`w-24 h-24 rounded-full flex items-center justify-center mb-6 ${isClean ? "bg-green-100" : "bg-red-100"}`}
+            className={`w-24 h-24 rounded-full flex items-center justify-center mb-6 border ${
+              isClean ? "bg-green-500/10 border-green-500/20" : "bg-red-500/10 border-red-500/20"
+            }`}
           >
             {isClean ? <Check size={48} className="text-green-500" /> : <X size={48} className="text-red-500" />}
           </div>
@@ -64,19 +73,27 @@ export default function ScanPage() {
             {isClean ? "Bu ürün temiz" : "Bu ürün boykot ediliyor"}
           </h2>
 
-          <p className="text-center text-gray-600 mb-8">
+          <p className="text-center text-muted-foreground mb-8 max-w-md">
             {isClean
               ? "Bu ürün etik standartları karşılıyor ve satın alınması güvenlidir."
               : "Çevresel uygulamalar ve çalışma koşullarıyla ilgili etik kaygılar nedeniyle boykot ediliyor."}
           </p>
 
           <div className="flex gap-4">
-            <Button variant="outline" className="px-6 py-2 border-gray-300 text-gray-700" onClick={resetScan}>
+            <Button 
+              variant="secondary"
+              onClick={resetScan}
+              className="min-w-[120px]"
+            >
               Tekrar Tara
             </Button>
 
             <Link href="/">
-              <Button className="px-6 py-2 bg-green-500 hover:bg-green-600">Ana Sayfa</Button>
+              <Button 
+                className="min-w-[120px] bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white"
+              >
+                Ana Sayfa
+              </Button>
             </Link>
           </div>
         </div>
