@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-between p-6 h-[calc(100vh-64px)] bg-background">
       <div className="w-full">
         <div className="flex justify-center mb-8">
-          <div className="bg-white rounded-lg p-4">
+          <div className=" rounded-lg p-4">
             <Image
               src="/logo.svg"
               alt="WeAreClean Logo"
