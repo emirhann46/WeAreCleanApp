@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Search, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input"; // Shadcn Input bileşenini import ediyoruz
 import Link from "next/link";
 import NewsletterForm from "@/components/newsletter-form";
 
@@ -24,7 +25,7 @@ export default function Home() {
         <NewsletterForm />
 
         <div className="relative w-full mb-8">
-          <input
+          <Input
             type="text"
             placeholder="Ürün ara..."
             className="w-full p-3 pl-10 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-foreground placeholder:text-muted-foreground"
